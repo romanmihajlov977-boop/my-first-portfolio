@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URBAN STYLE — Магазин одежды</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<header class="header">
+    <a href="#" class="logo">URBAN<span>.</span></a>
+
+    <nav>
+        <a href="#home">Главная</a>
+        <a href="#catalog">Каталог</a>
+        <a href="#about">О нас</a>
+    </nav>
+
+    <button class="cart-button" onclick="toggleCart()">
+        Корзина <span id="cart-count">0</span>
+    </button>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="subtitle">NEW COLLECTION / 2026</p>
+            <h1>ОДЕВАЙСЯ<br>ПО-СВОЕМУ.</h1>
+            <p>Стиль — это не правила. Это твой характер.</p>
+            <a href="#catalog" class="main-button">Смотреть коллекцию →</a>
+        </div>
+        <div class="hero-label">BE YOURSELF.</div>
+    </section>
+
+    <section class="catalog" id="catalog">
+        <div class="section-heading">
+            <div>
+                <p class="subtitle">OUR COLLECTION</p>
+                <h2>Популярные товары</h2>
+            </div>
+            <p>01 — 04</p>
+        </div>
+
+        <div class="products">
+
+            <article class="product">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=700" alt="Футболка">
+                    <span class="product-label">BESTSELLER</span>
+                </div>
+                <div class="product-info">
+                    <h3>Basic T-Shirt</h3>
+                    <p>Базовая футболка</p>
+                    <select id="size-1" class="size-select">
+                        <option value="S">Размер S</option>
+                        <option value="M" selected>Размер M</option>
+                        <option value="L">Размер L</option>
+                        <option value="XL">Размер XL</option>
+                    </select>
+                    <div class="product-bottom">
+                        <strong>1 990 ₽</strong>
+                        <button onclick="addToCart('Basic T-Shirt', 1990, 'size-1')">В корзину +</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=700" alt="Куртка">
+                    <span class="product-label">NEW</span>
+                </div>
+                <div class="product-info">
+                    <h3>Urban Jacket</h3>
+                    <p>Городская куртка</p>
+                    <select id="size-2" class="size-select">
+                        <option value="S">Размер S</option>
+                        <option value="M" selected>Размер M</option>
+                        <option value="L">Размер L</option>
+                        <option value="XL">Размер XL</option>
+                    </select>
+                    <div class="product-bottom">
+                        <strong>5 490 ₽</strong>
+                        <button onclick="addToCart('Urban Jacket', 5490, 'size-2')">В корзину +</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=700" alt="Джинсы">
+                </div>
+                <div class="product-info">
+                    <h3>Street Jeans</h3>
+                    <p>Свободные джинсы</p>
+                    <select id="size-3" class="size-select">
+                        <option value="S">Размер S</option>
+                        <option value="M" selected>Размер M</option>
+                        <option value="L">Размер L</option>
+                        <option value="XL">Размер XL</option>
+                    </select>
+                    <div class="product-bottom">
+                        <strong>3 290 ₽</strong>
+                        <button onclick="addToCart('Street Jeans', 3290, 'size-3')">В корзину +</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=700" alt="Одежда">
+                </div>
+                <div class="product-info">
+                    <h3>Street Style</h3>
+                    <p>Городской образ</p>
+                    <select id="size-4" class="size-select">
+                        <option value="S">Размер S</option>
+                        <option value="M" selected>Размер M</option>
+                        <option value="L">Размер L</option>
+                        <option value="XL">Размер XL</option>
+                    </select>
+                    <div class="product-bottom">
+                        <strong>4 790 ₽</strong>
+                        <button onclick="addToCart('Street Style', 4790, 'size-4')">В корзину +</button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <p class="subtitle">OUR PHILOSOPHY</p>
+        <h2>ТВОЙ СТИЛЬ.<br>ТВОИ ПРАВИЛА.</h2>
+        <p>URBAN STYLE — пространство современной городской моды.</p>
+        <a href="#catalog" class="about-link">ВЫБРАТЬ СВОЙ СТИЛЬ →</a>
+    </section>
+</main>
+
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+
+<aside class="cart-panel" id="cart-panel">
+    <div class="cart-header">
+        <div>
+            <p class="subtitle">YOUR SELECTION</p>
+            <h2>Корзина</h2>
+        </div>
+        <button class="close-cart" onclick="toggleCart()">✕</button>
+    </div>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-bottom">
+        <div class="cart-total">
+            <span>Итого:</span>
+            <strong id="cart-total">0 ₽</strong>
+        </div>
+        <button class="checkout-button" onclick="checkout()">
+            Оформить заказ →
+        </button>
+        <p class="demo-note">Демонстрационный магазин. Оплата не производится.</p>
+    </div>
+</aside>
+
+<footer>
+    <a href="#" class="logo">URBAN<span>.</span></a>
+    <p>© 2026 URBAN STYLE. Учебный проект.</p>
+</footer>
+
+</body>
+</html>
